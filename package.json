@@ -1,0 +1,15 @@
+{
+  "name": "trading",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gdax": "^0.8.0",
+    "gdax-trading-toolkit": "^0.3.1"
+  }
+}
