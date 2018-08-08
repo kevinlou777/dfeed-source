@@ -1,6 +1,6 @@
 # dfeed-source
 
-# Coinbase # 
+## Coinbase ## 
 Websocket Feed: https://docs.pro.coinbase.com/#websocket-feed 
 https://github.com/coinbase/gdax-node  
 
