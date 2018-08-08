@@ -2,12 +2,14 @@
 import * as request from "request";
 //import { logger } from "../logger";
 
-const CRYPTO_API = "https://bittrex.com/api/v1.1/public/getmarketsummary?market=USD-";
+const CRYPTO_API = "https://bittrex.com/api/v1.1/public/getticker?market=USD-";
+//const CRYPTO_API = "https://bittrex.com/api/v1.1/public/getmarketsummary?market=USD-";
+// https://support.bittrex.com/hc/en-us/articles/115003723911-Developer-s-Guide-API
+//
 
 export class DataSourceBITTREX {
     pollInterval = 60;
     cryptoSymbols = ["BTC", "ETH", "BCH", "LTC"];
-		
 
     public start() { 
 
@@ -32,9 +34,29 @@ function symbolWorker(symbol: string, api: string) {
            // logger.error({ message: "Cannot get symbol data for: " + symbol, statusCode: response.statusCode });
             return;
         } 
-		
 		//
-		console.dir(response.body);
+       processData(response.body, symbol);
+ 
     });
 }
- 
+
+function processData(apiResult: string, symbol: string) { 
+    var jsonObj = JSON.parse(apiResult);
+    if (jsonObj.result) {
+        const symbolData: any = {
+            value: {
+                timestamp: new Date().getTime(),
+                price: jsonObj.result.Last,
+                volume: "",
+                type: "buy",
+                symbol: symbol
+            }
+        };
+
+        // Send it to kafka
+        console.dir(JSON.stringify(symbolData));
+    } 
+    else {
+        //log error
+    }
+}
