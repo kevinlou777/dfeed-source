@@ -144,7 +144,7 @@ https://api.binance.com/api/v1/ticker/24hr?symbol=BTCUSDT
   ],
 ```
 
-# stock #
+# STOCK #
 
 # iextrading.com #
 
@@ -200,7 +200,8 @@ https://api.iextrading.com/1.0/stock/aapl/quote
 IEX also provides data feed for cryptocurreny. <br>
 Example: <br>
 https://api.iextrading.com/1.0/stock/market/crypto
-``[
+```
+[
   {
     "symbol": "BTCUSDT",
     "companyName": "Bitcoin USD",
