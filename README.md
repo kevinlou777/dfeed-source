@@ -46,6 +46,45 @@ Example: https://github.com/ZhiweiWang/node-bittrex-api <br>
 Accounts will be permitted to make a maximum of 60 API calls per minute, and calls after the limit will fail, with throttle settings automatically resetting at the start of the next minute.<br>
 Note: Corporate and high-volume accounts may contact customer support for additional information to ensure that they may continue operating at an optimal level. 
 
+Example:<br>
+
+https://bittrex.com/api/v1.1/public/getticker?market=USD-BTC
+```
+{
+  "success": true,
+  "message": "",
+  "result": {
+    "Bid": 6422.60000000,
+    "Ask": 6475.00000000,
+    "Last": 6475.00000000
+  }
+}
+```
+https://bittrex.com/api/v1.1/public/getmarketsummary?market=USD-BTC
+```
+{
+  "success": true,
+  "message": "",
+  "result": [
+    {
+      "MarketName": "USD-BTC",
+      "High": 6550.00000000,
+      "Low": 6150.00000000,
+      "Volume": 115.63218732,
+      "Last": 6475.00000000,
+      "BaseVolume": 728882.75359400,
+      "TimeStamp": "2018-08-09T15:47:18.253",
+      "Bid": 6422.60000000,
+      "Ask": 6475.00000000,
+      "OpenBuyOrders": 171,
+      "OpenSellOrders": 113,
+      "PrevDay": 6460.49000000,
+      "Created": "2018-05-31T13:24:40.77"
+    }
+  ]
+}
+```
+
 ## OKEX ##
 https://www.okex.com/v2/spot/markets/index-tickers?limit=100000000<br>
 API Document: https://github.com/okcoin-okex/API-docs-OKEx.com <br>
@@ -84,7 +123,7 @@ https://api.binance.com/api/v1/ticker/24hr?symbol=BTCUSDT
   "count": 273285
 }
 ```
-### API Limit - 1200 per minute (note it is measured by "weight" of the request. ### <br>
+**API Limit - 1200 per minute (note it is measured by "weight" of the request.** <br>
 ```
   "rateLimits": [
     {
