@@ -1,4 +1,4 @@
-# dfeed-source
+# CRYPTOCURRENCY #
 
 ## Coinbase ## 
 Websocket Feed: https://docs.pro.coinbase.com/#websocket-feed   <br>
@@ -143,4 +143,114 @@ https://api.binance.com/api/v1/ticker/24hr?symbol=BTCUSDT
     }
   ],
 ```
+
+# stock #
+
+# iextrading.com #
+
+API Reference: https://iextrading.com/developer/docs/ <br>
+
+Example <br>
+https://api.iextrading.com/1.0/stock/aapl/quote
+```
+{
+  "symbol": "AAPL",
+  "companyName": "Apple Inc.",
+  "primaryExchange": "Nasdaq Global Select",
+  "sector": "Technology",
+  "calculationPrice": "tops",
+  "open": 207.5,
+  "openTime": 1533821400756,
+  "close": 207.25,
+  "closeTime": 1533758400500,
+  "high": 209.59,
+  "low": 207.2,
+  "latestPrice": 209.5,
+  "latestSource": "IEX real time price",
+  "latestTime": "1:04:48 PM",
+  "latestUpdate": 1533834288340,
+  "latestVolume": 14497513,
+  "iexRealtimePrice": 209.5,
+  "iexRealtimeSize": 100,
+  "iexLastUpdated": 1533834288340,
+  "delayedPrice": 209.35,
+  "delayedPriceTime": 1533833404580,
+  "extendedPrice": 209.5,
+  "extendedChange": 0,
+  "extendedChangePercent": 0,
+  "extendedPriceTime": 1533834288340,
+  "previousClose": 207.25,
+  "change": 2.25,
+  "changePercent": 1.086,
+  "iexMarketPercent": 2.453,
+  "iexVolume": 355624,
+  "avgTotalVolume": 23559148,
+  "iexBidPrice": 209.48,
+  "iexBidSize": 100,
+  "iexAskPrice": 209.59,
+  "iexAskSize": 250,
+  "marketCap": 1011869497000,
+  "peRatio": 20.22,
+  "week52High": 209.5,
+  "week52Low": 149.16,
+  "ytdChange": 22.354684008039722
+}
+```
+
+IEX also provides data feed for cryptocurreny. <br>
+Example: <br>
+https://api.iextrading.com/1.0/stock/market/crypto
+``[
+  {
+    "symbol": "BTCUSDT",
+    "companyName": "Bitcoin USD",
+    "primaryExchange": "crypto",
+    "sector": "cryptocurrency",
+    "calculationPrice": "realtime",
+    "open": 6255,
+    "openTime": 1533748460454,
+    "close": 6329.26734044,
+    "closeTime": 1533834860454,
+    "high": 6550,
+    "low": 6123,
+    "latestPrice": 6453.88,
+    "latestSource": "Real time price",
+    "latestTime": "1:14:20 PM",
+    "latestUpdate": 1533834860454,
+    "latestVolume": 53099.322378,
+    "iexRealtimePrice": null,
+    "iexRealtimeSize": null,
+    "iexLastUpdated": null,
+    "delayedPrice": null,
+    "delayedPriceTime": null,
+    "extendedPrice": null,
+    "extendedChange": null,
+    "extendedChangePercent": null,
+    "extendedPriceTime": null,
+    "previousClose": 6257.89,
+    "change": 198.88,
+    "changePercent": 0.0318,
+    "iexMarketPercent": null,
+    "iexVolume": null,
+    "avgTotalVolume": null,
+    "iexBidPrice": null,
+    "iexBidSize": null,
+    "iexAskPrice": null,
+    "iexAskSize": null,
+    "marketCap": null,
+    "peRatio": null,
+    "week52High": null,
+    "week52Low": null,
+    "ytdChange": null,
+    "bidPrice": 6449.5,
+    "bidSize": 0.123956,
+    "askPrice": 6453.88,
+    "askSize": 0.112055
+  },
+  ...
+  ]`
+```
+
+
+
 
