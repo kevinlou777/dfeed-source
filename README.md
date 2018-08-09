@@ -2,7 +2,22 @@
 
 ## Coinbase ## 
 Websocket Feed: https://docs.pro.coinbase.com/#websocket-feed   <br>
-https://github.com/coinbase/gdax-node  <br>
+Node Library: https://github.com/coinbase/gdax-node  <br>
+
+Coinbase has a REST API but only provides very limited request options. There is a Node.js library we can use. Here is an examploe:
+```
+const GDAX = require('gdax');
+ 
+const publicClient = new GDAX.PublicClient();
+
+const callback = (error, response, data) => {
+    if (error)
+        return console.dir(error);
+    return console.dir(data);
+}
+
+publicClient.getProductTicker(BTC-USD, callback);
+```
 
 ## CEX.IO ##
 CEX.IO offers trading cryptocurrency for fiat money, such as USD, EUR, GBP and RUB. <br>
@@ -249,7 +264,7 @@ https://api.iextrading.com/1.0/stock/market/crypto
     "askSize": 0.112055
   },
   ...
-  ]`
+  ]
 ```
 
 
