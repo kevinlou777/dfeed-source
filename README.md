@@ -111,9 +111,24 @@ https://bittrex.com/api/v1.1/public/getmarketsummary?market=USD-BTC
 ```
 
 ## OKEX ##
-https://www.okex.com/v2/spot/markets/index-tickers?limit=100000000<br>
+
 API Document: https://github.com/okcoin-okex/API-docs-OKEx.com <br>
 Example: https://github.com/ZhiweiWang/node-okex-api  <br>
+Example: https://www.okex.com/api/v1/ticker.do?symbol=etc_usdt
+```
+{
+  "date": "1533925159",
+  "ticker": {
+    "high": "64.9000",
+    "vol": "412793.0000",
+    "last": "61.7976",
+    "low": "60.7212",
+    "buy": "61.8285",
+    "sell": "61.8721"
+  }
+}
+```
+
 
 ## Binance ##
 https://api.binance.com/api/v1/exchangeInfo<br>
