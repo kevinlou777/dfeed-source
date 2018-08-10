@@ -4,18 +4,17 @@
 Websocket Feed: https://docs.pro.coinbase.com/#websocket-feed   <br>
 Node Library: https://github.com/coinbase/gdax-node  <br>
 
-Coinbase has a REST API but only provides very limited request options. There is a Node.js library we can use. Here is an examploe:
-```
-const GDAX = require('gdax');
- 
-const publicClient = new GDAX.PublicClient();
+**Supported symbols: ["BTC", "ETH", "BCH", "LTC"] (paired with USD)**<br> 
 
+Coinbase has a REST API but only provides very limited request options. There is a Node.js library we can use. Here is an example:
+```
+const GDAX = require('gdax'); 
+const publicClient = new GDAX.PublicClient();
 const callback = (error, response, data) => {
     if (error)
         return console.dir(error);
     return console.dir(data);
 }
-
 publicClient.getProductTicker(BTC-USD, callback);
 ```
 Return JSON object:
@@ -34,7 +33,7 @@ CEX.IO offers trading cryptocurrency for fiat money, such as USD, EUR, GBP and R
 REST API: https://cex.io/rest-api <br>
 Realtime data websocket API: https://cex.io/websocket-api <br>
 Example: https://github.com/matveyco/cex.io-api-node.js  <br>
-
+**Supported symbols: ["BTC", "ETH", "BCH"] (paired with USD)**<br>
 ### Tiker ###
 https://cex.io/api/ticker/{symbol1}/{symbol2}
 
@@ -71,6 +70,7 @@ Example: https://github.com/ZhiweiWang/node-bittrex-api <br>
 Accounts will be permitted to make a maximum of 60 API calls per minute, and calls after the limit will fail, with throttle settings automatically resetting at the start of the next minute.<br>
 Note: Corporate and high-volume accounts may contact customer support for additional information to ensure that they may continue operating at an optimal level. 
 
+**Supported symbols: ["BTC", "ETH"] (paired with USD)**<br>
 Example:<br>
 
 https://bittrex.com/api/v1.1/public/getticker?market=USD-BTC
@@ -114,6 +114,7 @@ https://bittrex.com/api/v1.1/public/getmarketsummary?market=USD-BTC
 
 API Document: https://github.com/okcoin-okex/API-docs-OKEx.com <br>
 Example: https://github.com/ZhiweiWang/node-okex-api  <br>
+**Supported symbols: ["BTC", "ETH", "BCH", "LTC"] (paired with USDT)** <br>
 Example: https://www.okex.com/api/v1/ticker.do?symbol=etc_usdt
 ```
 {
@@ -134,6 +135,9 @@ Example: https://www.okex.com/api/v1/ticker.do?symbol=etc_usdt
 https://api.binance.com/api/v1/exchangeInfo<br>
 REST API: https://github.com/binance-exchange/binance-official-api-docs/blob/master/rest-api.md <br>
 Ticker only return symbol name and price. <br>
+
+**No USD prices available**<br>
+**Supported symbols: ["BTC", "ETH", "BCH", "LTC"] (paired with USDT)**<br>
 24-hour ticker trtuens 24 hour price change statistics. 
 
 Example: <br>
@@ -238,6 +242,8 @@ https://api.iextrading.com/1.0/stock/aapl/quote
 ```
 
 IEX also provides data feed for cryptocurreny. <br>
+**No USD prices are available**<br>
+**Supported symbols: ["BTC", "ETH", "BCH", "LTC"] (paired with USDT)**<br>
 Example: <br>
 https://api.iextrading.com/1.0/stock/market/crypto
 ```
