@@ -33,7 +33,9 @@ CEX.IO offers trading cryptocurrency for fiat money, such as USD, EUR, GBP and R
 REST API: https://cex.io/rest-api <br>
 Realtime data websocket API: https://cex.io/websocket-api <br>
 Example: https://github.com/matveyco/cex.io-api-node.js  <br>
+
 **Supported symbols: ["BTC", "ETH", "BCH"] (paired with USD)**<br>
+
 ### Tiker ###
 https://cex.io/api/ticker/{symbol1}/{symbol2}
 
@@ -71,6 +73,7 @@ Accounts will be permitted to make a maximum of 60 API calls per minute, and cal
 Note: Corporate and high-volume accounts may contact customer support for additional information to ensure that they may continue operating at an optimal level. 
 
 **Supported symbols: ["BTC", "ETH"] (paired with USD)**<br>
+
 Example:<br>
 
 https://bittrex.com/api/v1.1/public/getticker?market=USD-BTC
@@ -114,7 +117,10 @@ https://bittrex.com/api/v1.1/public/getmarketsummary?market=USD-BTC
 
 API Document: https://github.com/okcoin-okex/API-docs-OKEx.com <br>
 Example: https://github.com/ZhiweiWang/node-okex-api  <br>
-**Supported symbols: ["BTC", "ETH", "BCH", "LTC"] (paired with USDT)** <br>
+
+**No USD prices are available**<br>
+**Supported symbols: ["BTC", "ETH", "BCH", "LTC"] (paired with USDT)**<br>
+
 Example: https://www.okex.com/api/v1/ticker.do?symbol=etc_usdt
 ```
 {
@@ -138,6 +144,7 @@ Ticker only return symbol name and price. <br>
 
 **No USD prices available**<br>
 **Supported symbols: ["BTC", "ETH", "BCH", "LTC"] (paired with USDT)**<br>
+
 24-hour ticker trtuens 24 hour price change statistics. 
 
 Example: <br>
@@ -242,8 +249,10 @@ https://api.iextrading.com/1.0/stock/aapl/quote
 ```
 
 IEX also provides data feed for cryptocurreny. <br>
+
 **No USD prices are available**<br>
 **Supported symbols: ["BTC", "ETH", "BCH", "LTC"] (paired with USDT)**<br>
+
 Example: <br>
 https://api.iextrading.com/1.0/stock/market/crypto
 ```
