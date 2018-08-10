@@ -18,7 +18,17 @@ const callback = (error, response, data) => {
 
 publicClient.getProductTicker(BTC-USD, callback);
 ```
-
+Return JSON object:
+```
+{ trade_id: 6539398,
+  price: '610.01000000',
+  size: '0.07831207',
+  bid: '610',
+  ask: '610.01',
+  volume: '14226.94254497',
+  time: '2018-08-10T01:41:24.242000Z' }
+  ```
+  
 ## CEX.IO ##
 CEX.IO offers trading cryptocurrency for fiat money, such as USD, EUR, GBP and RUB. <br>
 REST API: https://cex.io/rest-api <br>
