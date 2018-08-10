@@ -3,25 +3,35 @@ const GDAX = require('gdax');
 //import { GDAXFeed } from "gdax-trading-toolkit/build/src/exchanges"
 
 const publicClient = new GDAX.PublicClient();
+var symbol;
 
 const callback = (error, response, data) => {
-    if (error)
+    if (error) {
         return console.dir(error);
-    return console.dir(data);
+    }
+    const symbolData: any = {
+        value: {
+            timestamp: new Date(data.time).getTime(),
+            price: data.price,
+            volume: data.volume,
+            type: "buy",
+            symbol: symbol
+        }
+    };
+    console.dir(JSON.stringify(symbolData));
+    return;
 }
 
 export class DataSourceGDAX {
     pollInterval = 60;
-    cryptoSymbols = ["BTC-USD", "ETH-USD", "BCH-USD", "LTC-USD"];
-
+    cryptoSymbols = ["BTC", "ETH", "BCH", "LTC"];
     public start() { 
-
         for (let i = 0; i < this.cryptoSymbols.length; i++) {
             setInterval(() => {
- 				publicClient.getProductTicker(this.cryptoSymbols[i], callback);
-            }, this.pollInterval * 200);
+                symbol = this.cryptoSymbols[i];    
+                publicClient.getProductTicker(this.cryptoSymbols[i] + "-USD", callback);
+            }, this.pollInterval * 200);            
         }
     }
- 
-	
 }
+ 

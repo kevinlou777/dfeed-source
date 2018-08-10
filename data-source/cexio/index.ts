@@ -10,7 +10,6 @@ export class DataSourceCEXIO {
 	
 	// LTC was removed from CEX.IO because of the low activities in March
 	
-
     public start() { 
 
         for (let i = 0; i < this.cryptoSymbols.length; i++) {
@@ -36,8 +35,31 @@ function symbolWorker(symbol: string, api: string) {
         } 
 		
 		//
-		console.dir(response.body);
+        processData(response.body, symbol);
     });
 }
 
+
+function processData(apiResult: string, symbol: string) { 
+    var json = JSON.parse(apiResult);
+    if (json) {
+        const symbolData: any = {
+            value: {
+                timestamp: json.timestamp,
+                price: json.last,
+                volume: json.volume,
+                type: "buy",
+                symbol: symbol
+            }
+        };
+
+        // Send it to kafka
+        console.dir(JSON.stringify(symbolData));
+    } 
+    else {
+        console.dir("Error get symbol data for: " + symbol);
+
+        //log error
+    }
+}
  

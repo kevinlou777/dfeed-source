@@ -2,14 +2,14 @@
 import * as request from "request";
 //import { logger } from "../logger";
 
-const CRYPTO_API = "https://bittrex.com/api/v1.1/public/getticker?market=USD-";
-//const CRYPTO_API = "https://bittrex.com/api/v1.1/public/getmarketsummary?market=USD-";
-// https://support.bittrex.com/hc/en-us/articles/115003723911-Developer-s-Guide-API
-//
+const CRYPTO_API = "https://bittrex.com/api/v1.1/public/getmarketsummary?market=USD-"; 
 
 export class DataSourceBITTREX {
     pollInterval = 60;
-    cryptoSymbols = ["BTC", "ETH", "BCH", "LTC"];
+    //cryptoSymbols = ["BTC", "ETH", "BCH", "LTC"];
+
+    //Currently only BTC/USD and ETH/USD are supported pairs
+    cryptoSymbols = ["BTC", "ETH"];
 
     public start() { 
 
@@ -27,11 +27,14 @@ function symbolWorker(symbol: string, api: string) {
     request(url, (error: any, response: request.Response, body: any) => {
         if (error) {
             //logger.error({message: "Cannot get symbol data for: " + symbol, error: error});
+            console.dir("Cannot get symbol data for: " + symbol);
             return;
         }
 
         if (response && response.statusCode !== 200) {
            // logger.error({ message: "Cannot get symbol data for: " + symbol, statusCode: response.statusCode });
+           console.dir("Cannot get symbosssl data for: " + symbol);
+
             return;
         } 
 		//
@@ -41,13 +44,13 @@ function symbolWorker(symbol: string, api: string) {
 }
 
 function processData(apiResult: string, symbol: string) { 
-    var jsonObj = JSON.parse(apiResult);
-    if (jsonObj.result) {
+    var json = JSON.parse(apiResult);
+    if (json.success && json.result) {
         const symbolData: any = {
             value: {
-                timestamp: new Date().getTime(),
-                price: jsonObj.result.Last,
-                volume: "",
+                timestamp: json.result.TimeStamp,
+                price: json.result.Last,
+                volume: json.result.Volume,
                 type: "buy",
                 symbol: symbol
             }
@@ -57,6 +60,8 @@ function processData(apiResult: string, symbol: string) {
         console.dir(JSON.stringify(symbolData));
     } 
     else {
+        console.dir("Error get symbol data for: " + symbol);
+
         //log error
     }
 }
